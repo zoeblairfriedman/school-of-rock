@@ -1,0 +1,42 @@
+.school {
+    display: flex;
+    justify-content: center;
+    opacity: .8;
+    height: 30rem;
+    padding: 1rem;
+}
+
+
+#rock-header {
+    display: flex;
+    justify-content: center;
+    background: yellow;
+    opacity: .8;
+    height: 7rem;
+    padding: 1rem;
+  }
+
+
+.rock-body {
+    position: relative;
+    padding: 5px;
+  }
+
+  .mouth {
+   position: absolute;
+    top: 125px;
+    left: 140px;
+  }
+  
+  .eyes {
+    position: absolute;
+    top: 90px;
+    left: 135px;
+  }
+
+
+  
+
+
+ 
+  
