@@ -1,13 +1,50 @@
-.school {
+/* .school {
+    position: relative;
     display: flex;
     justify-content: center;
     opacity: .8;
     height: 30rem;
     padding: 1rem;
+} */
+
+.rock-body {
+  position: relative;
+  display: inline-block;
+  height: 15rem;
+  padding: 5px;
 }
 
+.rock-div {
+    position: relative;
+    display: inline-block;
+    height: 15rem;
+    padding: 5px;
+  }
 
-#rock-header {
+  .mouth {
+   position: absolute;
+   height: 6rem;
+    top: 70px;
+    left: 80px;
+  }
+  
+  .eyes {
+    position: absolute;
+    height: 3rem;
+    top: 50px;
+    left: 80px;
+  }
+
+  .name {
+    position: absolute;
+    top: 50px;
+    left: 80px;
+  }
+
+  
+
+
+  #header {
     display: flex;
     justify-content: center;
     background: yellow;
@@ -15,28 +52,3 @@
     height: 7rem;
     padding: 1rem;
   }
-
-
-.rock-body {
-    position: relative;
-    padding: 5px;
-  }
-
-  .mouth {
-   position: absolute;
-    top: 125px;
-    left: 140px;
-  }
-  
-  .eyes {
-    position: absolute;
-    top: 90px;
-    left: 135px;
-  }
-
-
-  
-
-
- 
-  
