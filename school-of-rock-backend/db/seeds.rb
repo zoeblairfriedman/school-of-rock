@@ -13,3 +13,9 @@ Rock.create(name: "Big Bird", body: "one", eyes: "blue", mouth: "goldtooth")
 Rock.create(name: "Marzipan", body: "two", eyes: "white", mouth: "arr")
 
 
+Show.create(name: "Stuffy Giraffe", rock_id: 1)
+Show.create(name: "Goldfish", rock_id: 1)
+Show.create(name: "Flying V Guitar", rock_id: 1)
+Show.create(name: "Stuffy Elephant", rock_id: 2)
+Show.create(name: "Invisible Friend", rock_id: 3)
+Show.create(name: "a pretty stick", rock_id: 4)
