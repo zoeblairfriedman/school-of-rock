@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Rock.create(name: "Po", body: "one", eyes: "white", mouth: "arr")
+Rock.create(name: "Kermit", body: "two", eyes: "blue", mouth: "arr")
+Rock.create(name: "Big Bird", body: "one", eyes: "blue", mouth: "goldtooth")
+Rock.create(name: "Marzipan", body: "two", eyes: "white", mouth: "arr")
+
+
