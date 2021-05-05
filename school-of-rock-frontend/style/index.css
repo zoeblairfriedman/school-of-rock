@@ -37,13 +37,33 @@
 
   .name {
     position: absolute;
-    top: 50px;
-    left: 80px;
+    bottom: 0px;
+    left: 30px;
+    color: white
   }
 
+  .show {
+    position: absolute;
+    top: 0px;
+    padding: 5px;
+    left: 10px;
+    color: black;
+    background: rgba(255, 255, 255, 0.666);
+  }
+
+  .body-thumbnail {
+    height: 5rem;
+  }
+  .mouth-thumbnail {
+    height: 5rem;
+    background-color: coral;
+  }
+  .eye-thumbnail {
+    height: 3rem;
+    background-color: coral;
+  }
   
-
-
+  
   #header {
     display: flex;
     justify-content: center;

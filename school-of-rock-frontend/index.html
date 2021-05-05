@@ -19,15 +19,31 @@
 </div>
 
 <div id="newRockContainer">
+    <button id="new-rock-btn">Create Rock</button>
     <form id="rockForm">
         <label>Rock Name:</label>
-        <input type="text">
-        <label>Rock Body:</label>
-        <input type="text">
-        <label>Rock Eyes:</label>
-        <input type="text">
-        <label>Rock Mouth:</label>
-        <input type="text">
+        <input type="text"> <br>
+        <label>Rock Body:</label><br>
+    <div>
+        <img src="body/one.png" class="body-thumbnail">
+        <input type="radio" id="one" name="body" value="one">
+        <img src="body/two.png" class="body-thumbnail">
+        <input type="radio" id="two" name="body" value="two">
+    </div>
+    <div>
+        <label>Rock Eyes:</label><br>
+        <img src="eyes/blue.png" class="eye-thumbnail">
+        <input type="radio" id="blue" name="eyes" value="blue">
+        <img src="eyes/white.png" class="eye-thumbnail">
+        <input type="radio" id="white" name="eyes" value="white">
+    </div>
+    <div>
+        <label>Rock Mouth:</label><br>
+        <img src="mouth/arr.png" class="mouth-thumbnail">
+        <input type="radio" id="arr" name="mouth" value="arr">
+        <img src="mouth/goldtooth.png" class="mouth-thumbnail">
+        <input type="radio" id="goldtooth" name="mouth" value="goldtooth">
+    </div>
         <input type="submit" value="Make Rock">
     </form>
 </div>

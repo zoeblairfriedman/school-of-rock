@@ -19,7 +19,29 @@ function appendRocks(rocks){
         let rockMouth = document.createElement("img")
         rockMouth.src = `mouth/${rock.mouth}.png`
         rockMouth.className = "mouth"
-
-        rockDiv.append(rockBod, rockEyes, rockMouth)
+        let rockName = document.createElement("h1")
+        rockName.innerText = `${rock.name}`
+        rockName.className = "name"
+        rockDiv.append(rockBod, rockEyes, rockMouth, rockName)
+        appendShows(rock, rockDiv)
     }
+}
+
+function toggleForm(){
+    if (!!addRock){
+        addBtn.innerText = "Create Rock"
+        rockForm.style.display = "none"
+        addRock = false
+    } else {
+        addBtn.innerText = "Hide Form"
+        rockForm.style.display = "block"
+        addRock = true
+    }
+}
+
+function postRock(e){
+    e.preventDefault()
+    let name = e.target.children[1].value
+    // let body = e.target.children[5].children.body.value
+    debugger
 }
