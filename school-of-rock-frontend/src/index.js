@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 const addBtn = document.getElementById("new-rock-btn");
 addBtn.addEventListener("click", toggleForm)
-rockForm.addEventListener('submit', postRock)
+rockForm.addEventListener('submit', Rock.postRock)
 
 function jsonToJS(r){
     return r.json()
@@ -14,4 +14,4 @@ function jsonToJS(r){
 
 
 
-fetchRocks()
+Rock.fetchRocks()
