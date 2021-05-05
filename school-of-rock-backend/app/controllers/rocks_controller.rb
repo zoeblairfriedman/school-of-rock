@@ -26,6 +26,8 @@ class RocksController < ApplicationController
         params.require(:rock).permit(:name, :body, :eyes, :mouth)
     end
 
+
+
 end
 
 

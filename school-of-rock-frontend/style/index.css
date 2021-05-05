@@ -48,14 +48,19 @@
     left: 20px;
   }
 
-  .show {
+  /* .show {
     position: absolute;
     top: 0px;
     padding: 5px;
     left: 10px;
     color: black;
     background: rgba(255, 255, 255, 0.666);
+  } */
+
+  .showAndTell{
+    padding: 10px;
   }
+
 
   .body-thumbnail {
     height: 5rem;

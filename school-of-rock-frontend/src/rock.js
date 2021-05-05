@@ -49,7 +49,7 @@ function appendRock(rock){
     deleteRock.className = "delete"
     deleteRock.addEventListener("click", () => destroyRock(rock.id, rockDiv))
     rockDiv.append(rockBod, rockEyes, rockMouth, rockName, deleteRock)
-    appendShows(rock, rockDiv)
+    appendShows(rock)
 }
 
 // CREATE ROCKS
@@ -110,6 +110,7 @@ function graduate(m, div){
 }
 
 
+// OTHER 
 
 function toggleForm(){
     if (!!addRock){
@@ -121,4 +122,8 @@ function toggleForm(){
         rockForm.style.display = "block"
         addRock = true
     }
+}
+
+function renderShowAndTell(rock){
+   
 }
