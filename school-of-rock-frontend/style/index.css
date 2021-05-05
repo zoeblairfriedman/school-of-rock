@@ -37,9 +37,15 @@
 
   .name {
     position: absolute;
-    bottom: 0px;
-    left: 30px;
+    bottom: 2px;
+    left: 20px;
     color: white
+  }
+
+  .delete {
+    position: absolute;
+    bottom: 2px;
+    left: 20px;
   }
 
   .show {
