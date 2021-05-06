@@ -12,7 +12,7 @@
   display: inline-block;
   height: 15rem;
   padding: 5px;
-  background-color:grey;
+  /* background-color:grey; */
 }
 
 .rock-div {
@@ -40,7 +40,7 @@
     position: absolute;
     bottom: 2px;
     left: 20px;
-    color: white
+    /* color: white */
   }
 
   .delete {
@@ -83,4 +83,10 @@
     opacity: .8;
     height: 7rem;
     padding: 1rem;
+  }
+
+
+  .show-and-tell-intro {
+    background: rgb(84, 229, 240);
+    display: table
   }

@@ -12,6 +12,7 @@ class ShowsController < ApplicationController
 
     def create
         # add error handling also please oh god kill me
+        # rock = Rock.find_by(id: params[:show][:rock_id]) <--might need this for error handling
         show = Show.create(show_params)
         render json: show
     end
@@ -23,7 +24,6 @@ class ShowsController < ApplicationController
     end
 
     def show_params
-        # which version or rock ID do i need? 
         params.require(:show).permit(:name, :rock_id, :rockId)
     end
 

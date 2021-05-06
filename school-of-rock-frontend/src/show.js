@@ -7,7 +7,7 @@ class Show {
          this.rockId = show.rockId 
      }
 
-     static appendShowForm(rock){
+     static appendShowForm(rock, ul){
         const showForm = `
             <form id="showForm">
                 <label>What did ${rock.name} bring today? </label>
@@ -16,26 +16,13 @@ class Show {
                 <input type="submit"></input>
             </form>
             `
-        showAndTellContainer.innerHTML += showForm
+        let div = document.createElement("div")
+        div.innerHTML = showForm
+        showAndTellContainer.append(div)
         document.getElementById('showForm').addEventListener('submit', Show.addShow)
     }
 
-    static appendShows(rock){
-        const intro = document.createElement("p")
-        intro.innerHTML = `${rock.name} brought:`
-        intro.addEventListener('click', () => editShows(rock))
-        const ul = document.createElement("ul")
-        if (rock.shows.length !== 0)
-            for (let show of rock.shows){
-                show.appendShow(ul, show)
-            } else {
-                const li = document.createElement("li")
-                li.innerHTML = "nothing :("
-                ul.appendChild(li)
-            }
-      
-        showAndTellContainer.append(intro, ul)
-    }
+    
 
     appendShow(ul){
         const li = document.createElement("li")
@@ -45,14 +32,14 @@ class Show {
     }
 
     destroyShow(li){
-        // debugger
         fetch(`http://localhost:3000/shows/${this.id}`, {
             method: "DELETE"
-        }).then(r => r.json()).then(() => takeHome(li))
+        }).then(r => r.json()).then(() => this.takeHome(li))
     }
     
     takeHome(li){
         li.remove()
+        // redirect?
     }
 
     static addShow(e){ 
@@ -63,7 +50,7 @@ class Show {
         const body = {
             show: {
             name: showName,
-            rockId: rockId
+            rock_id: rockId
         }}
 
         fetch(`http://localhost:3000/shows`, {
@@ -77,13 +64,17 @@ class Show {
         .then(jsonToJS)
         .then(show => {
             let newShow = new Show(show)
-            //need ul to append ^^ and single source of truth problem
-            newShow.appendShow()
+            newShow.rockId = show.rock_id
+            let ul = document.getElementById(`show-list`)
+            // redirect instead???
+            newShow.appendShow(ul)
         })
     
         e.target.reset()
         // toggleForm()
     }
+
+
 
     }
 
@@ -91,19 +82,5 @@ class Show {
 
 // COULD NOT GET THESE INTO THE CLASSES
 
-function editShows(rock){
-   showAndTellContainer.innerHTML = ""
-   Show.appendShows(rock)
-   const liCollection = document.querySelectorAll("li")
-   for (let li of liCollection){
-       if (!!li.id){
-        const btn = document.createElement("button")
-        btn.innerText = "take home" 
-        //this is broken, why?
-        btn.addEventListener("click", () => destroyShow(li))
-        li.append(btn)
-    }
-   }
-   Show.appendShowForm(rock)
-}
+
 

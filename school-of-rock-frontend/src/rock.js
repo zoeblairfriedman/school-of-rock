@@ -32,7 +32,7 @@ class Rock {
         deleteRock.className = "delete"
         deleteRock.addEventListener("click", () => destroyRock(this.id, rockDiv))
         rockDiv.append(rockBod, rockEyes, rockMouth, rockName, deleteRock)
-        Show.appendShows(this)
+        this.appendShows()
     }
 
     static fetchRocks(){
@@ -92,6 +92,45 @@ class Rock {
         e.target.reset()
         toggleForm()
     }
+
+    appendShows(){
+        const intro = document.createElement("p")
+        intro.innerHTML = `${this.name} brought:`
+        intro.className = "show-and-tell-intro"
+        intro.addEventListener('click', () => this.editShows())
+        const ul = document.createElement("ul")
+        ul.id = `rock-${this.id}`
+        if (this.shows.length !== 0)
+            for (let show of this.shows){
+                show.appendShow(ul, show)
+            } else {
+                const li = document.createElement("li")
+                li.innerHTML = "nothing :("
+                ul.appendChild(li)
+            }
+      
+        showAndTellContainer.append(intro, ul)
+    }
+
+    editShows(){
+        showAndTellContainer.innerHTML = ""
+        this.appendShows()
+        const liCollection = document.querySelectorAll("li")
+        const ul = document.querySelector("ul")
+        ul.id = "show-list"
+        for (let li of liCollection){
+            if (!!li.id){
+             const btn = document.createElement("button")
+             btn.innerText = "take home" 
+             //this is broken, why?
+             const show = this.shows.find(s => s.id == li.id)
+            //  debugger
+             btn.addEventListener("click", () => show.destroyShow(li))
+             li.append(btn)
+         }
+        }
+        Show.appendShowForm(this, ul)
+     }
 
 }
 
