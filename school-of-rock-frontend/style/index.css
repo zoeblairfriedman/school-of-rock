@@ -1,18 +1,9 @@
-/* .school {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    opacity: .8;
-    height: 30rem;
-    padding: 1rem;
-} */
 
 .rock-body {
   position: relative;
   display: inline-block;
   height: 15rem;
   padding: 5px;
-  /* background-color:grey; */
 }
 
 .rock-div {
@@ -38,56 +29,49 @@
 
   .name {
     position: absolute;
-    bottom: 2px;
+    bottom: 20px;
     left: 20px;
     /* color: white */
   }
 
   .delete {
     position: absolute;
-    bottom: 2px;
+    bottom: 0px;
     left: 20px;
   }
 
-  /* .show {
-    position: absolute;
-    top: 0px;
-    padding: 5px;
-    left: 10px;
-    color: black;
-    background: rgba(255, 255, 255, 0.666);
-  } */
-
   .showAndTell{
     padding: 200px;
+    font-family: "Brush Script MT";
+    font-size: 30px
   }
-
- 
 
   .body-thumbnail {
     height: 5rem;
   }
   .mouth-thumbnail {
     height: 5rem;
-    background-color: coral;
   }
   .eye-thumbnail {
     height: 3rem;
-    background-color: coral;
   }
   
   
   #header {
     display: flex;
     justify-content: center;
-    background: yellow;
     opacity: .8;
-    height: 3rem;
-    padding: 1rem;
+    height: 1rem;
+    padding: 4rem;
   }
 
 
   .show-and-tell-intro {
     display: table;
     cursor: pointer;
+  }
+
+  #new-btn {
+    display: flex;
+    justify-content: center;
   }
