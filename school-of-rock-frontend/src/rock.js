@@ -1,12 +1,13 @@
 class Rock {
 
-    constructor(rock){
-        this.name = rock.name
-        this.id = rock.id
-        this.body = rock.body
-        this.eyes = rock.eyes
-        this.mouth = rock.mouth
-        this.shows = rock.shows
+    constructor({name, id, body, eyes, mouth, shows}){
+        //can this be dynamically set? 
+        this.name = name
+        this.id = id
+        this.body = body
+        this.eyes = eyes
+        this.mouth = mouth
+        this.shows = shows.map(show => new Show(show))
     }
 
     appendRock(){
@@ -31,7 +32,7 @@ class Rock {
         deleteRock.className = "delete"
         deleteRock.addEventListener("click", () => destroyRock(this.id, rockDiv))
         rockDiv.append(rockBod, rockEyes, rockMouth, rockName, deleteRock)
-        appendShows(this)
+        Show.appendShows(this)
     }
 
     static fetchRocks(){
