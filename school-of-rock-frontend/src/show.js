@@ -60,14 +60,24 @@ class Show {
         ul.appendChild(li)
     }
 
+    // destroyShow(){
+    //     fetch(`http://localhost:3000/shows/${this.id}`, {
+    //         method: "DELETE"
+    //     }).then(r => r.json()).then(() => this.takeHome())
+    // }
+
     destroyShow(){
         fetch(`http://localhost:3000/shows/${this.id}`, {
             method: "DELETE"
-        }).then(r => r.json()).then(() => this.takeHome())
+        })
+        .then(() => {
+          document.getElementById(this.id).remove()
+          this.takeHome()
+          document.getElementById(this.id).remove()
+        })
     }
     
     takeHome(){
-        // HOW TO GET THIS TO UPDATE IN THE DOM --> GO THROUGH ROCK'S SHOWS AND DELETE THIS SHOW
         showAndTellContainer.innerHTML = ""
         Show.appendShows()
     }

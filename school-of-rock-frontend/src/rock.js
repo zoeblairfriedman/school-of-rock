@@ -120,7 +120,6 @@ class Rock {
 // DESTROY ROCKS <--should these live in the class? 
 
 function destroyRock(id, rockDiv){
-    debugger
     fetch(`http://localhost:3000/rocks/${id}`, {
         method: "DELETE"
     }).then(jsonToJS).then(message => graduate(message, rockDiv))

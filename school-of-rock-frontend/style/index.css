@@ -77,14 +77,14 @@
   }
   
   
-  /* #header {
+  #header {
     display: flex;
     justify-content: center;
     background: yellow;
     opacity: .8;
-    height: 7rem;
+    height: 3rem;
     padding: 1rem;
-  } */
+  }
 
 
   .show-and-tell-intro {

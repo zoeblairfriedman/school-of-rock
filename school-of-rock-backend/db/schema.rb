@@ -23,11 +23,9 @@ ActiveRecord::Schema.define(version: 2021_05_04_141854) do
 
   create_table "shows", force: :cascade do |t|
     t.string "name"
-    t.integer "rock_id", null: false
+    t.integer "rock_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["rock_id"], name: "index_shows_on_rock_id"
   end
 
-  add_foreign_key "shows", "rocks"
 end
