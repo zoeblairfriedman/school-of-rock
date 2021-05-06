@@ -60,12 +60,6 @@ class Show {
         ul.appendChild(li)
     }
 
-    // destroyShow(){
-    //     fetch(`http://localhost:3000/shows/${this.id}`, {
-    //         method: "DELETE"
-    //     }).then(r => r.json()).then(() => this.takeHome())
-    // }
-
     destroyShow(){
         fetch(`http://localhost:3000/shows/${this.id}`, {
             method: "DELETE"
