@@ -14,4 +14,4 @@ function jsonToJS(r){
 
 
 
-Rock.fetchRocks()
+Rock.fetchRocks().then(Show.appendShows)

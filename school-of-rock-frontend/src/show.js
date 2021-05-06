@@ -1,6 +1,7 @@
 const showAndTellContainer = document.getElementById("showAndTellContainer")
 
 class Show {
+
      constructor(show){
          this.name = show.name
          this.id = show.id
@@ -22,7 +23,32 @@ class Show {
         document.getElementById('showForm').addEventListener('submit', Show.addShow)
     }
 
+
+    static appendShows(){
+        for (let rock of Rock.allRocks){
+            //this should be instance method
+            Show.appendShowsForRock(rock)
+        }
+    }
+
+    static appendShowsForRock(rock){
+        const intro = document.createElement("p")
+        intro.innerHTML = `${rock.name} brought:`
+        intro.className = "show-and-tell-intro"
+        intro.addEventListener('click', () => rock.editShows())
+        const ul = document.createElement("ul")
+        ul.id = `rock-${rock.id}`
+            if (rock.shows.length !== 0)
+            for (let show of rock.shows){
+                show.appendShow(ul, show)
+            } else {
+                const li = document.createElement("li")
+                li.innerHTML = "nothing :("
+                ul.appendChild(li)
+            }
     
+        showAndTellContainer.append(intro, ul)
+    }
 
     appendShow(ul){
         const li = document.createElement("li")
@@ -34,12 +60,13 @@ class Show {
     destroyShow(li){
         fetch(`http://localhost:3000/shows/${this.id}`, {
             method: "DELETE"
-        }).then(r => r.json()).then(() => this.takeHome(li))
+        }).then(r => r.json()).then(() => this.takeHome())
     }
     
-    takeHome(li){
-        li.remove()
-        // redirect?
+    takeHome(){
+        // HOW TO GET THIS TO UPDATE IN THE DOM --> GO THROUGH ROCK'S SHOWS AND DELETE THIS SHOW
+        showAndTellContainer.innerHTML = ""
+        Show.appendShows()
     }
 
     static addShow(e){ 
@@ -66,12 +93,11 @@ class Show {
             let newShow = new Show(show)
             newShow.rockId = show.rock_id
             let ul = document.getElementById(`show-list`)
-            // redirect instead???
-            newShow.appendShow(ul)
+            const thisRock = Rock.allRocks.find(r => r.id === show.rock_id)
+            thisRock.shows.push(newShow)
+            showAndTellContainer.innerHTML = ""
+            Show.appendShows()
         })
-    
-        e.target.reset()
-        // toggleForm()
     }
 
 
