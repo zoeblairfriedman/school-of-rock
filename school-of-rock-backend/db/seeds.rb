@@ -8,9 +8,10 @@
 
 
 Rock.create(name: "Po", body: "one", eyes: "white", mouth: "arr")
-Rock.create(name: "Kermit", body: "two", eyes: "blue", mouth: "arr")
-Rock.create(name: "Big Bird", body: "one", eyes: "blue", mouth: "goldtooth")
-Rock.create(name: "Marzipan", body: "two", eyes: "white", mouth: "arr")
+Rock.create(name: "Kermit", body: "two", eyes: "blue", mouth: "vrr")
+Rock.create(name: "Big Bird", body: "three", eyes: "pink", mouth: "goldtooth")
+Rock.create(name: "Marzipan", body: "two", eyes: "white", mouth: "hmm")
+Rock.create(name: "Grimaldi", body: "one", eyes: "squint", mouth: "ooh")
 
 
 Show.create(name: "Stuffy Giraffe", rock_id: 1)
