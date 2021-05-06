@@ -2,10 +2,13 @@ const showAndTellContainer = document.getElementById("showAndTellContainer")
 
 class Show {
 
+    // static allShows = []
+
      constructor(show){
          this.name = show.name
          this.id = show.id
-         this.rockId = show.rockId 
+         this.rockId = show.rockId
+        //  Show.allShows.push(this) 
      }
 
      static appendShowForm(rock, ul){
@@ -57,7 +60,7 @@ class Show {
         ul.appendChild(li)
     }
 
-    destroyShow(li){
+    destroyShow(){
         fetch(`http://localhost:3000/shows/${this.id}`, {
             method: "DELETE"
         }).then(r => r.json()).then(() => this.takeHome())
@@ -100,13 +103,5 @@ class Show {
         })
     }
 
-
-
     }
-
-
-
-// COULD NOT GET THESE INTO THE CLASSES
-
-
 

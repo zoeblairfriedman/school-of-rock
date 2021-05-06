@@ -12,6 +12,7 @@ class Rock {
         Rock.allRocks.push(this)
     }
 
+
     appendRock(){
         const div = document.getElementById("rockContainer")
         const rockDiv = document.createElement("div")
@@ -89,30 +90,12 @@ class Rock {
         .then(rock => {
             let newRock = new Rock(rock)
             newRock.appendRock()
+            Show.appendShowsForRock(newRock)
         })
     
         e.target.reset()
         toggleForm()
     }
-
-    // appendShows(){
-    //     const intro = document.createElement("p")
-    //     intro.innerHTML = `${this.name} brought:`
-    //     intro.className = "show-and-tell-intro"
-    //     intro.addEventListener('click', () => this.editShows())
-    //     const ul = document.createElement("ul")
-    //     ul.id = `rock-${this.id}`
-    //     if (this.shows.length !== 0)
-    //         for (let show of this.shows){
-    //             show.appendShow(ul, show)
-    //         } else {
-    //             const li = document.createElement("li")
-    //             li.innerHTML = "nothing :("
-    //             ul.appendChild(li)
-    //         }
-      
-    //     showAndTellContainer.append(intro, ul)
-    // }
 
     editShows(){
         showAndTellContainer.innerHTML = ""
@@ -125,7 +108,7 @@ class Rock {
              const btn = document.createElement("button")
              btn.innerText = "take home" 
              const show = this.shows.find(s => s.id == li.id)
-             btn.addEventListener("click", () => show.destroyShow(li))
+             btn.addEventListener("click", () => show.destroyShow())
              li.append(btn)
          }
         }
@@ -137,6 +120,7 @@ class Rock {
 // DESTROY ROCKS <--should these live in the class? 
 
 function destroyRock(id, rockDiv){
+    debugger
     fetch(`http://localhost:3000/rocks/${id}`, {
         method: "DELETE"
     }).then(jsonToJS).then(message => graduate(message, rockDiv))
@@ -145,7 +129,6 @@ function destroyRock(id, rockDiv){
 function graduate(m, div){
     div.remove()
     window.alert(m.message)
-    // how can i remove the associated todos from the dom?
 }
 
 // OTHER 
