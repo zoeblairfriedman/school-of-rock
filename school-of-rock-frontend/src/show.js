@@ -65,13 +65,14 @@ class Show {
             method: "DELETE"
         })
         .then(() => {
-          document.getElementById(this.id).remove()
+        //   document.getElementById(this.id).remove()
           this.takeHome()
-          document.getElementById(this.id).remove()
+        //   document.getElementById(this.id).remove()
         })
     }
     
     takeHome(){
+        // debugger
         showAndTellContainer.innerHTML = ""
         Show.appendShows()
     }
