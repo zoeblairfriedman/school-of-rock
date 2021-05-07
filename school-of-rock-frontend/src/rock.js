@@ -139,32 +139,11 @@ class Rock {
     }
 
 
-    // static appendShowsForRock(rock){
-    //     const intro = document.createElement("p")
-    //     intro.innerHTML = `${rock.name} brought:`
-    //     intro.className = "show-and-tell-intro"
-    //     intro.addEventListener('click', () => rock.editShows())
-    //     const ul = document.createElement("ul")
-    //     ul.id = `rock-${rock.id}`
-
-    //     // {} added ===========================================
-    //     if (rock.shows.length !== 0) {
-    //         for (let show of rock.shows) {
-    //             show.appendShow(ul, show)
-    //         }
-    //     } else {
-    //         const li = document.createElement("li")
-    //         li.innerHTML = "nothing :("
-    //         ul.appendChild(li)
-    //     }
-    
-    //     showAndTellContainer.append(intro, ul)
-    // }
-
     destroyRock(id, rockDiv){
         fetch(`http://localhost:3000/rocks/${id}`, {
             method: "DELETE"
         }).then(jsonToJS).then(message => this.graduate(message, rockDiv))
+        Rock.allRocks = Rock.allRocks.filter(r => r !== Rock.allRocks.find(rock => rock.id == this.id)) 
         document.getElementById(`rock-${this.id}-div`).remove()
     }
     

@@ -2,13 +2,11 @@ const showAndTellContainer = document.getElementById("showAndTellContainer")
 
 class Show {
 
-    // static allShows = []
 
      constructor(show){
          this.name = show.name
          this.id = show.id
          this.rockId = show.rockId
-        //  Show.allShows.push(this) 
      }
 
      static appendShowForm(rock, ul){
@@ -45,30 +43,11 @@ class Show {
             method: "DELETE"
         })
         .then(() => {
-        //  Rock.allRocks.find(r => r.id === this.rockId) <--- why can't i set this to a variable?
-        // or even this??? Rock.allRocks.find(r => r.id === this.rockId).shows
-        this.takeHome()
-        //   document.getElementById(this.id).remove()
-        // make sure it takes the shows as well
+          this.takeHome()
+          Rock.allRocks.find(rock => rock.id == this.rockId).shows = Rock.allRocks.find(rock => rock.id == this.rockId).shows.filter(show => show.id !== this.id)
+          document.getElementById(this.id).remove()
         })
     }
-
-    // JINOOK'S VERSION
-    // destroyShow(){
-    //     fetch(`http://localhost:3000/shows/${this.id}`, {
-    //         method: "DELETE"
-    //     })
-    //     .then(() => {
-    //       document.getElementById(this.id).remove()
-    //       this.takeHome()
-    //       // update the rock's shows array in Rock.allRocks
-    //       Rock.allRocks.find(rock => rock.id == this.rockId).shows = Rock.allRocks.find(rock => rock.id == this.rockId).shows.filter(show => show.id !== this.id)
-    //       document.getElementById(this.id).remove()
-    //     })
-    // }
-
-
-
     
     takeHome(){
         showAndTellContainer.innerHTML = ""
