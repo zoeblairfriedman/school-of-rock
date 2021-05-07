@@ -11,7 +11,7 @@ class RocksController < ApplicationController
     end
 
     def create
-        # add error handling also please oh god kill me
+        # add error handling
         rock = Rock.create(rock_params)
         render json: rock
     end
