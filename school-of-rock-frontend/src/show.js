@@ -29,28 +29,8 @@ class Show {
 
     static appendShows(){
         for (let rock of Rock.allRocks){
-            //this should be instance method
-            Show.appendShowsForRock(rock)
+            rock.appendShowsForRock()
         }
-    }
-
-    static appendShowsForRock(rock){
-        const intro = document.createElement("p")
-        intro.innerHTML = `${rock.name} brought:`
-        intro.className = "show-and-tell-intro"
-        intro.addEventListener('click', () => rock.editShows())
-        const ul = document.createElement("ul")
-        ul.id = `rock-${rock.id}`
-            if (rock.shows.length !== 0)
-            for (let show of rock.shows){
-                show.appendShow(ul, show)
-            } else {
-                const li = document.createElement("li")
-                li.innerHTML = "nothing :("
-                ul.appendChild(li)
-            }
-    
-        showAndTellContainer.append(intro, ul)
     }
 
     appendShow(ul){
@@ -65,14 +45,15 @@ class Show {
             method: "DELETE"
         })
         .then(() => {
+        //  Rock.allRocks.find(r => r.id === this.rockId) <--- why can't i set this to a variable?
+        // or even this??? Rock.allRocks.find(r => r.id === this.rockId).shows
+        this.takeHome()
         //   document.getElementById(this.id).remove()
-          this.takeHome()
-        //   document.getElementById(this.id).remove()
+        // make sure it takes the shows as well
         })
     }
     
     takeHome(){
-        // debugger
         showAndTellContainer.innerHTML = ""
         Show.appendShows()
     }
