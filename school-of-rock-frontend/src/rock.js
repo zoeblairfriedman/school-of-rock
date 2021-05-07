@@ -142,14 +142,10 @@ class Rock {
         fetch(`http://localhost:3000/rocks/${id}`, {
             method: "DELETE"
         }).then(jsonToJS).then(message => this.graduate(message, rockDiv))
-        //what is the value of this above???? how can i turn this back into a reg func
-    document.getElementById(`rock-${id}`).remove()
-    // why does the above one work but this one doesn't? also isn't this cheating?
-
+        document.getElementById(`rock-${this.id}-div`).remove()
     }
     
     graduate(m, div){
-        // how to reverse append shows for rock without refreshing?
         div.remove()
         window.alert(m.message)
     }
