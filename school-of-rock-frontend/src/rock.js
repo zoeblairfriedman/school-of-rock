@@ -89,7 +89,7 @@ class Rock {
         .then(rock => {
             let newRock = new Rock(rock)
             newRock.appendRock()
-            Show.appendShowsForRock(newRock)
+            newRock.appendShowsForRock()
         })
     
         e.target.reset()
@@ -117,9 +117,11 @@ class Rock {
      }
 
      appendShowsForRock(){
+        const div = document.createElement("div")
+        div.id = `rock-${this.id}-div`
         const intro = document.createElement("p")
         intro.innerHTML = `${this.name} brought:`
-        intro.className = `intro-rock-${this.id}`
+        intro.className = `show-and-tell-intro`
         intro.addEventListener('click', () => this.editShows())
         const ul = document.createElement("ul")
         ul.id = `rock-${this.id}`
@@ -132,7 +134,8 @@ class Rock {
                 ul.appendChild(li)
             }
     
-        showAndTellContainer.append(intro, ul)
+        showAndTellContainer.append(div)
+        div.append(intro, ul)
     }
 
     destroyRock(id, rockDiv){
@@ -142,7 +145,7 @@ class Rock {
         //what is the value of this above???? how can i turn this back into a reg func
     document.getElementById(`rock-${id}`).remove()
     // why does the above one work but this one doesn't? also isn't this cheating?
-    document.getElementById(`intro-rock-${id}`).remove()
+
     }
     
     graduate(m, div){
