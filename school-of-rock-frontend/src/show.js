@@ -77,11 +77,15 @@ class Show {
         .then(show => {
             let newShow = new Show(show)
             newShow.rockId = show.rock_id
-            let ul = document.getElementById(`show-list`)
-            const thisRock = Rock.allRocks.find(r => r.id === show.rock_id)
-            thisRock.shows.push(newShow)
-            showAndTellContainer.innerHTML = ""
-            Show.appendShows()
+            if (!!newShow.id){
+                let ul = document.getElementById(`show-list`)
+                const thisRock = Rock.allRocks.find(r => r.id === show.rock_id)
+                thisRock.shows.push(newShow)
+                showAndTellContainer.innerHTML = ""
+                Show.appendShows()
+            } else {
+                window.alert(show.message)
+            }
         })
     }
 

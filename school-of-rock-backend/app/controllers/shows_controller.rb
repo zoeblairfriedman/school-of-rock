@@ -4,17 +4,19 @@ class ShowsController < ApplicationController
         render json: Show.all, key_transform: :camel_lower
     end
 
-    def show
-        #add error handling
-        show = Show.find_by(id: params[:id])
-        render json: show, key_transform: :camel_lower
-    end
+    # def show
+    #     #add error handling
+    #     show = Show.find_by(id: params[:id])
+    #     render json: show, key_transform: :camel_lower
+    # end
 
     def create
-        # add error handling also please oh god kill me
-        # rock = Rock.find_by(id: params[:show][:rock_id]) <--might need this for error handling
         show = Show.create(show_params)
-        render json: show
+        if show.save
+           render json: show
+        else
+            render json: {message: show.errors.full_messages}
+        end
     end
 
     def destroy
