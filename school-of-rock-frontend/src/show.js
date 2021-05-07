@@ -52,6 +52,23 @@ class Show {
         // make sure it takes the shows as well
         })
     }
+
+    // JINOOK'S VERSION
+    // destroyShow(){
+    //     fetch(`http://localhost:3000/shows/${this.id}`, {
+    //         method: "DELETE"
+    //     })
+    //     .then(() => {
+    //       document.getElementById(this.id).remove()
+    //       this.takeHome()
+    //       // update the rock's shows array in Rock.allRocks
+    //       Rock.allRocks.find(rock => rock.id == this.rockId).shows = Rock.allRocks.find(rock => rock.id == this.rockId).shows.filter(show => show.id !== this.id)
+    //       document.getElementById(this.id).remove()
+    //     })
+    // }
+
+
+
     
     takeHome(){
         showAndTellContainer.innerHTML = ""
