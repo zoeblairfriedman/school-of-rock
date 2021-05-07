@@ -39,9 +39,7 @@ class Show {
     }
 
     destroyShow(){
-        fetch(`http://localhost:3000/shows/${this.id}`, {
-            method: "DELETE"
-        })
+        useAPI.deleteFetch("shows", this.id)
         .then(() => {
           this.takeHome()
           Rock.allRocks.find(rock => rock.id == this.rockId).shows = Rock.allRocks.find(rock => rock.id == this.rockId).shows.filter(show => show.id !== this.id)
@@ -64,16 +62,7 @@ class Show {
             name: showName,
             rock_id: rockId
         }}
-
-        fetch(`http://localhost:3000/shows`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-        },
-        body: JSON.stringify(body)
-        })
-        .then(jsonToJS)
+        useAPI.postFetch("shows", body)
         .then(show => {
             let newShow = new Show(show)
             newShow.rockId = show.rock_id

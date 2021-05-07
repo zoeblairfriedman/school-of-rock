@@ -41,6 +41,7 @@ class Rock {
         return fetch("http://localhost:3000/rocks")
         .then(jsonToJS)
         .then(this.appendRocks)
+
     }
     
     static appendRocks(rocks){
@@ -69,23 +70,14 @@ class Rock {
                 }
             }
         }
-            const body = {
+        const body = {
             rock: {
             name: rockName,
             body: rockBody,
             eyes: rockEyes,
             mouth: rockMouth
         }}
-    
-        fetch("http://localhost:3000/rocks", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
-        },
-        body: JSON.stringify(body)
-        })
-        .then(jsonToJS)
+        useAPI.postFetch("rocks", body)
         .then(rock => {
             if (!!rock.id) {
             let newRock = new Rock(rock)
@@ -144,9 +136,8 @@ class Rock {
 
 
     destroyRock(id, rockDiv){
-        fetch(`http://localhost:3000/rocks/${id}`, {
-            method: "DELETE"
-        }).then(jsonToJS).then(message => this.graduate(message, rockDiv))
+        useAPI.deleteFetch("rocks", id)
+        .then(jsonToJS).then(message => this.graduate(message, rockDiv))
         Rock.allRocks = Rock.allRocks.filter(r => r !== Rock.allRocks.find(rock => rock.id == this.id)) 
         document.getElementById(`rock-${this.id}-div`).remove()
     }
