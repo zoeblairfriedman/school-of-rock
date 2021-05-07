@@ -4,14 +4,8 @@ class RocksController < ApplicationController
         render json: Rock.all, key_transform: :camel_lower
     end
 
-    # def show
-    #     #add error handling
-    #     rock = Rock.find_by(id: params[:id])
-    #     render json: rock
-    # end
 
     def create
-        # add error handling
         rock = Rock.create(rock_params)
         if rock.save 
             render json: rock
