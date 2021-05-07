@@ -54,9 +54,9 @@ class Rock {
         e.preventDefault()
         let rockName = e.target.children[1].value
         let rockParts = document.querySelectorAll(".radio")
-        let rockBody = "tbd"
-        let rockEyes = "tbd"
-        let rockMouth = "tbd"
+        let rockBody = ""
+        let rockEyes = ""
+        let rockMouth = ""
     
         for (let i = 0; i < rockParts.length; i++){
             if (rockParts[i].checked){
@@ -87,9 +87,13 @@ class Rock {
         })
         .then(jsonToJS)
         .then(rock => {
+            if (!!rock.id) {
             let newRock = new Rock(rock)
             newRock.appendRock()
             newRock.appendShowsForRock()
+            } else {
+                window.alert(rock["message"])
+            }
         })
     
         e.target.reset()
