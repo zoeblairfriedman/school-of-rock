@@ -1,4 +1,5 @@
 const useAPI = new API()
+
 let addRock = false;
 const rockForm = document.getElementById("rockForm")
 document.addEventListener("DOMContentLoaded", function(){

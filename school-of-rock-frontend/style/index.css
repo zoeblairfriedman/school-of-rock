@@ -64,7 +64,7 @@
 
 
   .show-and-tell-intro {
-    display: table;
+    /* display: table; */
     cursor: pointer;
   }
 
