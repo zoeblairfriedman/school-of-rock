@@ -45,6 +45,7 @@ class Show {
           Rock.allRocks.find(rock => rock.id == this.rockId).shows = Rock.allRocks.find(rock => rock.id == this.rockId).shows.filter(show => show.id !== this.id)
           document.getElementById(this.id).remove()
         })
+        .catch((err) => alert(err))
     }
     
     takeHome(){
@@ -76,6 +77,7 @@ class Show {
                 window.alert(show.message)
             }
         })
+        .catch((err) => alert(err))
     }
 
     }

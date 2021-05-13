@@ -87,6 +87,7 @@ class Rock {
                 window.alert(rock["message"])
             }
         })
+        .catch((err) => alert(err))
     
         e.target.reset()
         toggleForm()
@@ -138,6 +139,7 @@ class Rock {
     destroyRock(id, rockDiv){
         useAPI.deleteFetch("rocks", id)
         .then(jsonToJS).then(message => this.graduate(message, rockDiv))
+        .catch((err) => alert(err))
         Rock.allRocks = Rock.allRocks.filter(r => r !== Rock.allRocks.find(rock => rock.id == this.id)) 
         document.getElementById(`rock-${this.id}-div`).remove()
     }
