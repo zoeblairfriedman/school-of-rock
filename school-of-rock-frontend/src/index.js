@@ -15,6 +15,7 @@ function jsonToJS(r){
 }
 
 Rock.fetchRocks().then(Show.appendShows)
+
 let flash = setInterval(flashLogo, 1000)
 
 const logo = document.getElementById("logo")

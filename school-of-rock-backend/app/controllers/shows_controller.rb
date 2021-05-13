@@ -4,11 +4,6 @@ class ShowsController < ApplicationController
         render json: Show.all, key_transform: :camel_lower
     end
 
-    # def show
-    #     #add error handling
-    #     show = Show.find_by(id: params[:id])
-    #     render json: show, key_transform: :camel_lower
-    # end
 
     def create
         show = Show.create(show_params)
@@ -25,6 +20,8 @@ class ShowsController < ApplicationController
         render json: show
     end
 
+    private 
+    
     def show_params
         params.require(:show).permit(:name, :rock_id, :rockId)
     end

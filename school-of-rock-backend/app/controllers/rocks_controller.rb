@@ -25,6 +25,8 @@ class RocksController < ApplicationController
         render json: {message: "#{rock.name} graduated from the School of Rock!"}
     end
 
+    private 
+    
     def rock_params
         params.require(:rock).permit(:name, :body, :eyes, :mouth)
     end
