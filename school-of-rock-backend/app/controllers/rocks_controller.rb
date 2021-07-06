@@ -6,6 +6,7 @@ class RocksController < ApplicationController
 
 
     def create
+        # binding.pry
         rock = Rock.create(rock_params)
         if rock.save 
             render json: rock

@@ -33,7 +33,7 @@ class Rock {
         const deleteRock = document.createElement("button")
         deleteRock.innerText = "delete"
         deleteRock.className = "delete"
-        deleteRock.addEventListener("click", () => this.destroyRock(this.id, rockDiv))
+        deleteRock.addEventListener("click", () => this.destroyRock(rockDiv))
         rockDiv.append(rockBod, rockEyes, rockMouth, rockName, deleteRock)
     }
 
@@ -45,6 +45,16 @@ class Rock {
     }
     
     static appendRocks(rocks){
+        rocks.sort((a, b) => { 
+            if (a.name < b.name) {
+                return -1;
+              }
+              if (a.name > b.name) {
+                return 1;
+              }
+              return 0
+            
+             })
         for (let rock of rocks){
             let newRock = new Rock(rock)
             newRock.appendRock()
@@ -53,11 +63,12 @@ class Rock {
 
     static postRock(e){
         e.preventDefault()
-        let rockName = e.target.children[1].value
+        let rockName = e.target.name.value
         let rockParts = document.querySelectorAll(".radio")
         let rockBody = ""
         let rockEyes = ""
         let rockMouth = ""
+        $('#createModal').modal('hide')
     
         for (let i = 0; i < rockParts.length; i++){
             if (rockParts[i].checked){
@@ -83,14 +94,13 @@ class Rock {
             let newRock = new Rock(rock)
             newRock.appendRock()
             newRock.appendShowsForRock()
+            // dismiss modal
             } else {
                 window.alert(rock["message"])
             }
         })
         .catch((err) => alert(err))
-    
         e.target.reset()
-        toggleForm()
     }
 
     editShows(){
@@ -136,8 +146,8 @@ class Rock {
     }
 
 
-    destroyRock(id, rockDiv){
-        useAPI.deleteFetch("rocks", id)
+    destroyRock(rockDiv){
+        useAPI.deleteFetch("rocks", this.id)
         .then(jsonToJS).then(message => this.graduate(message, rockDiv))
         .catch((err) => alert(err))
         Rock.allRocks = Rock.allRocks.filter(r => r !== Rock.allRocks.find(rock => rock.id == this.id)) 
@@ -152,15 +162,4 @@ class Rock {
 }
 
 
-function toggleForm(){
-    if (!!addRock){
-        addBtn.innerText = "Create Rock"
-        rockForm.style.display = "none"
-        addRock = false
-    } else {
-        addBtn.innerText = "Hide Form"
-        rockForm.style.display = "block"
-        addRock = true
-    }
-}
 

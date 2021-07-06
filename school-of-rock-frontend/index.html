@@ -4,74 +4,113 @@
 <head>
     <meta charset="utf-8">
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    <link rel="stylesheet" href="style/index.css">
     
     <title>School of Rock</title>
 </head>
-<body style="background-color:rgb(142, 217, 249);"></body>
 
-<div id="header">
-    <img id="logo" src= "app-logo.png">
-</div>
-
-
-<div id="newRockContainer">
-    <div id="new-btn">
-        <button id="new-rock-btn">Create Rock</button>
-    </div>  
-    <form id="rockForm">
-        <label>Rock Name:</label>
-        <input type="text"> <br>
-        <label>Rock Body:</label><br>
-    <div>
-        <img src="body/one.png" class="body-thumbnail">
-        <input type="radio" id="one" name="body" value="one" class="radio">
-        <img src="body/two.png" class="body-thumbnail">
-        <input type="radio" id="two" name="body" value="two" class="radio">
-        <img src="body/three.png" class="body-thumbnail">
-        <input type="radio" id="three" name="body" value="three" class="radio">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">SCHOOL OF ROCK</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#createModal">Create Rock</a>
+        <a class="nav-link" href="#">Show & Tell</a>
+      </div>
     </div>
-    <div>
-        <label>Rock Eyes:</label><br>
-        <img src="eyes/blue.png" class="eye-thumbnail">
-        <input type="radio" id="blue" name="eyes" value="blue" class="radio">
-        <img src="eyes/white.png" class="eye-thumbnail">
-        <input type="radio" id="white" name="eyes" value="white" class="radio">
-        <img src="eyes/squint.png" class="eye-thumbnail">
-        <input type="radio" id="squint" name="eyes" value="squint" class="radio">
-        <img src="eyes/pink.png" class="eye-thumbnail">
-        <input type="radio" id="pink" name="eyes" value="pink" class="radio">
+</nav>
+
+<section id="logoSection">
+        <div class="container d-flex justify-content-center">
+         <img src="app-logo-literal.png" alt="" id="logo">
+      </div>
+</section>
+
+<section id="mainSection">
+    <div class="row">
+        <div class="col-12 col-lg-9 my-0">
+            <div id="rockContainer">
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 my-0">
+            <div id="showAndTellContainer" class="showAndTell">
+            </div>
+        </div>  
     </div>
-    <div>
-        <label>Rock Mouth:</label><br>
-        <img src="mouth/arr.png" class="mouth-thumbnail">
-        <input type="radio" id="arr" name="mouth" value="arr" class="radio">
-        <img src="mouth/goldtooth.png" class="mouth-thumbnail">
-        <input type="radio" id="goldtooth" name="mouth" value="goldtooth" class="radio">
-        <img src="mouth/ooh.png" class="mouth-thumbnail">
-        <input type="radio" id="ooh" name="mouth" value="ooh" class="radio">
-        <img src="mouth/hmm.png" class="mouth-thumbnail">
-        <input type="radio" id="hmm" name="mouth" value="hmm" class="radio">
-        <img src="mouth/vrr.png" class="mouth-thumbnail">
-        <input type="radio" id="vrr" name="mouth" value="vrr" class="radio">
-    </div>
-        <input type="submit" value="Make Rock">
-    </form>
-</div>
+</section>
 
-<div id="rockContainer" style="background-image: url('school.png'); background-size: cover;">
-</div>
+<section>
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">CREATE ROCK</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <form id="rockForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="Rock Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="body">Body</label>
+                        <img src="body/one.png" class="body-thumbnail">
+                        <input type="radio" id="one" name="body" value="one" class="radio">
+                        <img src="body/two.png" class="body-thumbnail">
+                        <input type="radio" id="two" name="body" value="two" class="radio">
+                        <img src="body/three.png" class="body-thumbnail">
+                        <input type="radio" id="three" name="body" value="three" class="radio">
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="eyes">Eyes</label>
+                        <img src="eyes/blue.png" class="eye-thumbnail">
+                        <input type="radio" id="blue" name="eyes" value="blue" class="radio">
+                        <img src="eyes/white.png" class="eye-thumbnail">
+                        <input type="radio" id="white" name="eyes" value="white" class="radio">
+                        <img src="eyes/squint.png" class="eye-thumbnail">
+                        <input type="radio" id="squint" name="eyes" value="squint" class="radio">
+                        <img src="eyes/pink.png" class="eye-thumbnail">
+                        <input type="radio" id="pink" name="eyes" value="pink" class="radio">               
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="mouth">Mouth</label>
+                        <img src="mouth/arr.png" class="mouth-thumbnail">
+                        <input type="radio" id="arr" name="mouth" value="arr" class="radio">
+                        <img src="mouth/goldtooth.png" class="mouth-thumbnail">
+                        <input type="radio" id="goldtooth" name="mouth" value="goldtooth" class="radio">
+                        <img src="mouth/ooh.png" class="mouth-thumbnail">
+                        <input type="radio" id="ooh" name="mouth" value="ooh" class="radio">
+                        <img src="mouth/hmm.png" class="mouth-thumbnail">
+                        <input type="radio" id="hmm" name="mouth" value="hmm" class="radio">
+                        <img src="mouth/vrr.png" class="mouth-thumbnail">
+                        <input type="radio" id="vrr" name="mouth" value="vrr" class="radio">
+                    </div>
+                    <hr>
+                    <input type="submit" class="btn btn-primary" value="Create Rock">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>
 
-<div id="showAndTellContainer" class="showAndTell" style="background-image: url('bulletinboard.png'); background-size: 100% 100%;">
-
-</div>
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="src/rock.js"></script>
+<script src="src/show.js"></script>
+<script src="src/api.js"></script>
+<script src="src/index.js"></script>
 
-    <script src="src/rock.js"></script>
-    <script src="src/show.js"></script>
-    <script src="src/api.js"></script>
-    <script src="src/index.js"></script>
 </body>
 </html>

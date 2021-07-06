@@ -1,6 +1,6 @@
 class API {
 
-// can't get this to work:
+// figure this out eventually please:
     // constructor(){
     //     this.baseUrl = "http://locahost:3000/"
     // }
