@@ -6,10 +6,15 @@ body {
 }
 
 #showAndTellContainer {
-    background: url(bulletinboard.png);
-    min-height: 750px;
-    position: relative;
+  padding-left: 5rem;
+  padding-top: 10rem;
+  padding-bottom: 9rem;
+  background-image: url(bulletinboard.png);  
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
+    
 
 
 .rock-body {

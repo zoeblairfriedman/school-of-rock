@@ -10,7 +10,7 @@
     <title>School of Rock</title>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">SCHOOL OF ROCK</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#createModal">Create Rock</a>
-        <a class="nav-link" href="#">Show & Tell</a>
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#showModal">Show & Tell</a>
       </div>
     </div>
 </nav>
@@ -29,19 +29,32 @@
       </div>
 </section>
 
-<section id="mainSection" class="d-flex justify-content-center align-items-center">
-    <div class="row">
-        <div class="col-12 col-lg-9 my-0">
-            <div id="rockContainer">
-            </div>
-        </div>
-        <div class="col-12 col-lg-3 my-0">
-            <div id="showAndTellContainer" class="showAndTell">
-            </div>
-        </div>  
-    </div>
+<section id="mainSection">
+    <div id="rockContainer"></div>
 </section>
 
+<!-- show and tell modal -->
+<div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Show and Tell</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div id="showAndTellContainer" class="showAndTell">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- create rock modal -->
 <section>
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
