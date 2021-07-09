@@ -4,51 +4,50 @@
 <head>
     <meta charset="utf-8">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">    
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/app.css">
     
     <title>School of Rock</title>
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">SCHOOL OF ROCK</a>
+<nav id="mainNav" class="navbar fixed-top navbar-expand-lg navbar-light">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#createModal">Create Rock</a>
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#showModal">Show & Tell</a>
+        <a class="text-primary nav-link" href="#" data-toggle="modal" data-target="#createModal">Create Rock</a>
+        <a class="text-primary nav-link" href="#" data-toggle="modal" data-target="#showModal">Show & Tell</a>
       </div>
     </div>
 </nav>
 
 <section id="logoSection">
         <div class="container d-flex justify-content-center">
-         <img src="app-logo-literal.png" alt="" id="logo">
+         <img src="logo-pink.png" alt="" id="logo">
       </div>
 </section>
 
 <section id="mainSection">
-    <div id="rockContainer"></div>
+    <div id="rockContainer" class="mb-4 fixed-bottom"></div>
 </section>
 
 <!-- show and tell modal -->
 <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="showModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Show and Tell</h5>
+        <div class="modal-header blue-modal">
+          <h5 class="h2 modal-title" id="exampleModalLabel">Show and Tell</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body p-0">
             <div id="showAndTellContainer" class="showAndTell">
             </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <div class="modal-footer blue-modal">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -59,17 +58,17 @@
     <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">CREATE ROCK</h5>
+            <div class="modal-header pink-modal">
+              <h5 class="h2 modal-title" id="exampleModalLabel">CREATE ROCK</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
                 <form id="rockForm">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="Rock Name">
+                    <div class="form-group form-inline">
+                        <label class="mr-3" for="name">Name</label>
+                        <input type="text" id="name" class="form-control">
                     </div>
                     <div class="form-group">
                         <label for="body">Body</label>
@@ -82,7 +81,7 @@
                     </div>
                     <hr>
                     <div class="form-group">
-                        <label for="eyes">Eyes</label>
+                        <label class= "mr-3" for="eyes">Eyes</label>
                         <img src="eyes/blue.png" class="eye-thumbnail">
                         <input type="radio" id="blue" name="eyes" value="blue" class="radio">
                         <img src="eyes/white.png" class="eye-thumbnail">
@@ -93,7 +92,7 @@
                         <input type="radio" id="pink" name="eyes" value="pink" class="radio">               
                     </div>
                     <div class="form-group">
-                        <label for="mouth">Mouth</label>
+                        <label class= "mr-3" for="mouth">Mouth</label>
                         <img src="mouth/arr.png" class="mouth-thumbnail">
                         <input type="radio" id="arr" name="mouth" value="arr" class="radio">
                         <img src="mouth/goldtooth.png" class="mouth-thumbnail">
@@ -124,6 +123,14 @@
 <script src="src/show.js"></script>
 <script src="src/api.js"></script>
 <script src="src/index.js"></script>
+<!-- <script>
+    $(function () {
+    $(document).scroll(function () {
+    var $nav = $("#mainNav");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+    });
+    });
+  </script> -->
 
 </body>
 </html>

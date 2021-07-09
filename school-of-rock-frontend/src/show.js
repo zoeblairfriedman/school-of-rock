@@ -1,5 +1,6 @@
 const showAndTellContainer = document.getElementById("showAndTellContainer")
 
+
 class Show {
 
 
@@ -15,7 +16,7 @@ class Show {
                 <label>What did ${rock.name} bring today? </label>
                 <input id="showContent"/>
                 <input type="hidden" id= ${rock.id}>
-                <input type="submit"></input>
+                <input type="submit" class="btn btn-primary"></input>
             </form>
             `
         let div = document.createElement("div")

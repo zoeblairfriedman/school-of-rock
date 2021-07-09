@@ -27,12 +27,12 @@ class Rock {
         const rockMouth = document.createElement("img")
         rockMouth.src = `mouth/${this.mouth}.png`
         rockMouth.className = "mouth"
-        const rockName = document.createElement("h1")
+        const rockName = document.createElement("h2")
         rockName.innerText = `${this.name}`
-        rockName.className = "name"
+        rockName.className = "h2 text-primary my-3 name"
         const deleteRock = document.createElement("button")
-        deleteRock.innerText = "delete"
-        deleteRock.className = "delete"
+        deleteRock.innerText = "graduate"
+        deleteRock.className = "btn btn-warning text-white delete"
         deleteRock.addEventListener("click", () => this.destroyRock(rockDiv))
         rockDiv.append(rockBod, rockEyes, rockMouth, rockName, deleteRock)
     }
@@ -68,7 +68,7 @@ class Rock {
         let rockBody = ""
         let rockEyes = ""
         let rockMouth = ""
-        $('#createModal').modal('hide')
+        
     
         for (let i = 0; i < rockParts.length; i++){
             if (rockParts[i].checked){
@@ -94,7 +94,7 @@ class Rock {
             let newRock = new Rock(rock)
             newRock.appendRock()
             newRock.appendShowsForRock()
-            // dismiss modal
+            $('#createModal').modal('hide')
             } else {
                 window.alert(rock["message"])
             }
@@ -113,10 +113,10 @@ class Rock {
             if (!!li.id){
              const btn = document.createElement("button")
              btn.innerText = "take home"
-             btn.className = "btn btn-primary btn-sm" 
+             btn.className = "btn btn-warning btn-sm take-home"
              const show = this.shows.find(s => s.id == li.id)
              btn.addEventListener("click", () => show.destroyShow())
-             li.className = "button-font"
+             li.className = "my-2"
              li.append(btn)
          }
         }
@@ -126,7 +126,7 @@ class Rock {
      appendShowsForRock(){
         const div = document.createElement("div")
         div.id = `rock-${this.id}-div`
-        const intro = document.createElement("p")
+        const intro = document.createElement("h4")
         intro.innerHTML = `${this.name} brought:`
         intro.className = `show-and-tell-intro`
         intro.addEventListener('click', () => this.editShows())
