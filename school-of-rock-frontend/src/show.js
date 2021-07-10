@@ -23,8 +23,12 @@ class Show {
         div.innerHTML = showForm
         showAndTellContainer.append(div)
         document.getElementById('showForm').addEventListener('submit', Show.addShow)
+        document.getElementById('closeModal').addEventListener('click', function(){
+            let container = document.getElementById('showAndTellContainer')
+            container.innerHTML = ""
+            Show.appendShows()
+        })
     }
-
 
     static appendShows(){
         for (let rock of Rock.allRocks){
