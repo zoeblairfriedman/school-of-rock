@@ -95,12 +95,30 @@ class Rock {
             newRock.appendRock()
             newRock.appendShowsForRock()
             $('#createModal').modal('hide')
+            newRock.welcome(newRock)
             } else {
                 window.alert(rock["message"])
             }
         })
         .catch((err) => alert(err))
         e.target.reset()
+    }
+
+    welcome(rock){
+        const nav = document.getElementById("mainNav")
+        let alert = document.createElement("div")
+        const gradAlert = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                Welcome, ${rock.name}!
+                <br>
+                <small>It's time for Show & Tell!</small>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            `
+        alert.innerHTML = gradAlert
+        nav.append(alert)
     }
 
     editShows(){
@@ -160,7 +178,9 @@ class Rock {
         let alert = document.createElement("div")
         const gradAlert = `
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                <strong>Congrats!</strong> ${m.message}
+                <strong>Congrats!</strong>
+                <br> 
+                <small>${m.message}</small>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
