@@ -1,4 +1,5 @@
 Fix show and tell so it toggles between full list and one rock
 add event listener to takeHome
-
-upgrade alerts
+change literal so it doesn't look so whack
+add OTHER alert stylings smh
+fonts could still use some work

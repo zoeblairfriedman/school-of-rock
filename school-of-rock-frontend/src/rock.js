@@ -32,7 +32,7 @@ class Rock {
         rockName.className = "h2 text-primary my-3 name"
         const deleteRock = document.createElement("button")
         deleteRock.innerText = "graduate"
-        deleteRock.className = "btn btn-warning text-white delete"
+        deleteRock.className = "btn btn-warning text-white delete border border-white"
         deleteRock.addEventListener("click", () => this.destroyRock(rockDiv))
         rockDiv.append(rockBod, rockEyes, rockMouth, rockName, deleteRock)
     }
@@ -156,7 +156,18 @@ class Rock {
     
     graduate(m, div){
         div.remove()
-        window.alert(m.message)
+        const nav = document.getElementById("mainNav")
+        let alert = document.createElement("div")
+        const gradAlert = `
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong>Congrats!</strong> ${m.message}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            `
+        alert.innerHTML = gradAlert
+        nav.append(alert)
     }
 
 }
