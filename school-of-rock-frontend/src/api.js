@@ -6,7 +6,7 @@ class API {
     // }
 
     postFetch(resource, body){
-       return fetch(`http://localhost:3000/${resource}`, {
+       return fetch(`https://school-of-rock-api.herokuapp.com/${resource}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -19,7 +19,7 @@ class API {
     }
 
     deleteFetch(resource, id){
-        return fetch(`http://localhost:3000/${resource}/${id}`, {
+        return fetch(`https://school-of-rock-api.herokuapp.com/${resource}/${id}`, {
             method: "DELETE"
         })
         

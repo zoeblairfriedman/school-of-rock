@@ -38,7 +38,8 @@ class Rock {
     }
 
     static fetchRocks(){
-        return fetch("http://localhost:3000/rocks")
+        return fetch("https://school-of-rock-api.herokuapp.com/rocks")
+        // return fetch("http://localhost:3000/rocks")
         .then(jsonToJS)
         .then(this.appendRocks)
 
